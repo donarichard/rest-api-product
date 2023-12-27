@@ -9,7 +9,7 @@ const config = {
 		description: ''
 	},
 	tags: [],
-	host: 'localhost:8080/api/v1',
+	host: 'rest-api-product-development.up.railway.app/api/v1',
 	schemes: ['http', 'https']
 };
 
