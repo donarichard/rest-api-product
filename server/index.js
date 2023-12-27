@@ -12,7 +12,7 @@ let server;
 
 //connection for mongodb
 connector();
-
+console.log(config.env)
 //cluster load balancer
 if (cluster.isMaster && config.env !== 'development') {
 	logger.info(`Master ${process.pid} is running`);
