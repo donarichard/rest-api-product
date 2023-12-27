@@ -14,7 +14,7 @@ let server;
 connector();
 console.log(config.env)
 //cluster load balancer
-if (cluster.isMaster && config.env !== 'development') {
+if (cluster.isMaster && config.env !== 'development' &&  config.env !== 'production') {
 	logger.info(`Master ${process.pid} is running`);
 	const numCPUs = os.cpus().length;
 	// Fork workers.
