@@ -1,0 +1,175 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Task REST API",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8080/api/v1",
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "number",
+            "default": 10
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "number",
+            "default": 0
+          },
+          {
+            "name": "categoery_type",
+            "in": "query",
+            "type": "string",
+            "default": "all",
+            "example": "all, power_tools, hand_tools, plumbing_tools, other"
+          },
+          {
+            "name": "product_id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "feature_type",
+            "in": "query",
+            "type": "string",
+            "default": "all",
+            "example": "top_rating, special_offer, best_seller, new_arrival"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Glossy Gray 19 Aluminium whell AR-19"
+                },
+                "model_id": {
+                  "type": "string",
+                  "example": "SKU-123456789"
+                },
+                "price": {
+                  "type": "number",
+                  "example": 589
+                },
+                "categoery": {
+                  "type": "string",
+                  "example": "power_tools"
+                },
+                "inOffer": {
+                  "type": "boolean",
+                  "example": false
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/reviews/{product_id}": {
+      "get": {
+        "tags": [
+          "Reviews"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "number",
+            "default": 10
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "number",
+            "default": 0
+          },
+          {
+            "name": "product_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/reviews": {
+      "post": {
+        "tags": [
+          "Reviews"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "product_id": {
+                  "type": "string",
+                  "example": "SKU-123456789"
+                },
+                "content": {
+                  "type": "string",
+                  "example": "This is a good product"
+                },
+                "rating": {
+                  "type": "number",
+                  "example": 4
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    }
+  }
+}

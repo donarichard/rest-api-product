@@ -1,0 +1,13 @@
+# package directories
+node_modules
+
+
+# dependencies
+/node_modules
+
+# build
+/dist
+
+
+# package-lock
+package-lock.json
